@@ -1,0 +1,31 @@
+:root {
+  --color-daiLan: #4A6FA5;
+  --color-zhuSha: #C84A3E;
+  --color-zhuQing: #5B8C5A;
+  --color-tanHe: #8B6F47;
+  --color-miBai: #F5F0E8;
+  --color-nuanBai: #FAF7F2;
+  --color-moHei: #2C2C2C;
+  --color-fuZhu: #6B6B6B;
+  --color-tongQianJin: #D4AF37;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-full: 50%;
+
+  --font-zh: "PingFang SC", system-ui, -apple-system, sans-serif;
+
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 16px rgba(74, 111, 165, 0.12);
+}
