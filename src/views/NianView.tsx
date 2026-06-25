@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 import { useAppState } from '../hooks/useAppState'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import NianAvatar from '../components/NianAvatar'
 import AnimatedNumber from '../components/AnimatedNumber'
 import NianSpeech, { getRandomEncourageMessage } from '../components/NianSpeech'
 import { achievements, isAchievementUnlocked } from '../data/achievements'
@@ -66,6 +65,7 @@ const NianView: React.FC = () => {
     if (nianProgress.streakDays === 0) {
       updateNian({ streakDays: 1 })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, memo, useCallback } from 'react'
+import { useRef, useEffect, useState, memo } from 'react'
 import { AppProvider, useAppContext } from './context/AppContext'
 import { useAppState } from './hooks/useAppState'
 import OnboardingView from './views/OnboardingView'

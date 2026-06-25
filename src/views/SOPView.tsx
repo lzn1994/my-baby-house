@@ -267,12 +267,7 @@ const SOPView: React.FC = () => {
     })
 
     const stepStageId = currentStep.stageId
-    const stepId = currentStep.id
-    const completedCountBefore = state.sopProgress.completedSteps.length
     const stepsInStage = sopSteps.filter((s) => s.stageId === stepStageId)
-    const completedInStageBefore = stepsInStage.filter((s) =>
-      state.sopProgress.completedSteps.includes(s.id)
-    ).length
 
     setViewState('completing')
     updateNian({ emotion: 'excited' })
@@ -366,15 +361,15 @@ const SOPView: React.FC = () => {
 
       if (!prefersReducedMotion()) {
         tl.call(() => {
-          heartParticles(nianEl, { count: 10, color: '#C84A3E' })
-        }, 0.3)
+          heartParticles(nianEl as HTMLElement, { count: 10, color: '#C84A3E' })
+        }, [], 0.3)
       }
     }
 
     if (cardRef.current && !prefersReducedMotion()) {
       tl.call(() => {
-        coinParticles(cardRef.current, { count: 4 })
-      }, 0.4)
+        coinParticles(cardRef.current as HTMLElement, { count: 4 })
+      }, [], 0.4)
     }
 
     tl.call(() => {
@@ -438,6 +433,7 @@ const SOPView: React.FC = () => {
         setShowFloorPlanAI(true)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedStepId])
 
   useEffect(() => {
@@ -520,6 +516,7 @@ const SOPView: React.FC = () => {
       prevStageRef.current = currentStep.stageId
       stepDuration.start()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStep, stepDuration])
 
   const completedCount = state.sopProgress.completedSteps.length

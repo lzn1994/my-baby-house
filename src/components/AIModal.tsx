@@ -19,9 +19,7 @@ export interface AIModalProps {
 
 const AIModal: React.FC<AIModalProps> = ({
   isOpen,
-  type = 'floorplan',
   title,
-  state = 'result',
   onClose,
   onConfirm,
   confirmText = '确认',

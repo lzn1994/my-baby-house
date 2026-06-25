@@ -39,7 +39,6 @@ const ProgressRing: React.FC<ProgressRingProps> = ({
     const threshold = (index + 1) / segments
     if (segmentProgress >= threshold) return statusColors[status]
     if (segmentProgress >= index / segments) {
-      const segmentFilled = (segmentProgress - index / segments) * segments
       return statusColors[status]
     }
     return 'var(--color-miBai)'

@@ -370,7 +370,6 @@ const OnboardingView: React.FC = () => {
     if (!q) return null
     
     const questionIndex = dialogFlow.currentIndex + 1
-    const totalQuestions = dialogFlow.totalSteps
 
     return (
       <>

@@ -65,8 +65,9 @@ const AILoading: React.FC<AILoadingProps> = ({
   }, [])
 
   useEffect(() => {
-    if (avatarRef.current) {
-      gsap.to(avatarRef.current, {
+    const avatarEl = avatarRef.current
+    if (avatarEl) {
+      gsap.to(avatarEl, {
         rotation: 360,
         duration: 1.5,
         repeat: -1,
@@ -74,8 +75,8 @@ const AILoading: React.FC<AILoadingProps> = ({
       })
     }
     return () => {
-      if (avatarRef.current) {
-        gsap.killTweensOf(avatarRef.current)
+      if (avatarEl) {
+        gsap.killTweensOf(avatarEl)
       }
     }
   }, [])

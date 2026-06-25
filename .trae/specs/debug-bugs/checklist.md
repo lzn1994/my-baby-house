@@ -1,0 +1,12 @@
+- [x] TypeScript 配置修复：tsconfig.json 中移除弃用的 baseUrl 选项
+- [x] TypeScript 类型检查通过：`npx tsc --noEmit` 无错误
+- [x] 项目构建成功：`npm run build` 正常完成，生成 dist 目录
+- [x] 路径别名正常工作：@/* 导入能正确解析
+- [x] ESLint 配置迁移：从 .eslintrc.cjs 迁移到 eslint.config.js
+- [x] ESLint 正常运行：`npm run lint` 无配置错误
+- [x] TypeScript strict 模式无错误
+- [x] 无未使用的变量和导入警告
+- [x] React hooks 依赖正确
+- [x] 开发服务器正常启动：`npm run dev` 可以正常运行
+- [x] 构建预览正常：`npm run preview` 可以正常预览
+- [x] 现有功能不受影响：核心页面和功能正常运行

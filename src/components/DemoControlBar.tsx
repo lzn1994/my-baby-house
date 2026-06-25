@@ -22,9 +22,7 @@ export interface DemoControlBarProps {
 const DemoControlBar: React.FC<DemoControlBarProps> = ({
   visible,
   isPlaying,
-  isPaused,
   currentChapterIndex,
-  chapterProgress,
   totalProgress,
   chapters,
   currentTime,

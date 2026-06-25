@@ -411,21 +411,8 @@ export const numberTween = (
     delay = 0,
     onUpdate,
     onComplete,
-    prefix = '',
-    suffix = '',
     decimals = 0,
-    useThousandSeparator = false,
   } = options
-
-  const formatNumber = (val: number): string => {
-    let formatted = val.toFixed(decimals)
-    if (useThousandSeparator) {
-      const parts = formatted.split('.')
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      formatted = parts.join('.')
-    }
-    return prefix + formatted + suffix
-  }
 
   return gsap.to(target, {
     value: endValue,

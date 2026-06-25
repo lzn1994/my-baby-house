@@ -1,7 +1,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { useAppState } from './useAppState'
 import { demoChapters, type DemoAction, type DemoChapter } from '../data/demo-script'
-import { demoStyleResult, demoBudgetBreakdown, demoNianProgress, demoSOPProgress, demoCity, demoArea } from '../data/mock-demo'
+import { demoStyleResult, demoBudgetBreakdown, demoNianProgress, demoCity, demoArea } from '../data/mock-demo'
 import { trackEvent } from '../utils/tracking'
 import type { AppState } from '../types'
 
@@ -24,7 +24,7 @@ export interface DemoModeState {
 }
 
 export function useDemoMode() {
-  const { state, dispatch, setView, setStyleResult, setUserSession, updateSOPStep, completeStep, updateNian, setDemoMode, resetState } = useAppState()
+  const { state, dispatch, setView, setStyleResult, setUserSession, setDemoMode } = useAppState()
 
   const [demoState, setDemoState] = useState<DemoModeState>({
     isPlaying: false,
@@ -44,9 +44,9 @@ export function useDemoMode() {
     speakVisible: false,
   })
 
-  const timeoutsRef = useRef<NodeJS.Timeout[]>([])
+  const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([])
   const originalStateRef = useRef<AppState | null>(null)
-  const actionTimersRef = useRef<Map<string, NodeJS.Timeout>>(new Map())
+  const actionTimersRef = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map())
   const currentChapterIndexRef = useRef(0)
   const isPlayingRef = useRef(false)
   const demoStartTimeRef = useRef<number>(0)
@@ -100,7 +100,7 @@ export function useDemoMode() {
         setView(action.payload)
         break
 
-      case 'speak':
+      case 'speak': {
         setDemoState((prev) => ({
           ...prev,
           speakMessage: action.payload,
@@ -111,6 +111,7 @@ export function useDemoMode() {
         }, 3500)
         actionTimersRef.current.set(`${timerId}-speak`, speakTimer)
         break
+      }
 
       case 'highlight':
         setDemoState((prev) => ({

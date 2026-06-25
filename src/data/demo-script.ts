@@ -1,19 +1,13 @@
 import type { AppView } from '../types'
 
-export type DemoActionType =
-  | 'navigate'
-  | 'click'
-  | 'type'
-  | 'highlight'
-  | 'speak'
-  | 'wait'
-  | 'custom'
-
-export interface DemoAction {
-  type: DemoActionType
-  delay?: number
-  payload?: AppView | string | number | { selector?: string; position?: string; message?: string } | Record<string, unknown>
-}
+export type DemoAction =
+  | { type: 'navigate'; delay?: number; payload: AppView }
+  | { type: 'speak'; delay?: number; payload: string }
+  | { type: 'highlight'; delay?: number; payload: { selector?: string; position?: 'top' | 'bottom' | 'left' | 'right' | 'center'; message?: string } }
+  | { type: 'click'; delay?: number; payload?: Record<string, unknown> }
+  | { type: 'type'; delay?: number; payload?: Record<string, unknown> }
+  | { type: 'custom'; delay?: number; payload?: Record<string, unknown> }
+  | { type: 'wait'; delay?: number; payload?: number }
 
 export interface DemoChapter {
   id: number
